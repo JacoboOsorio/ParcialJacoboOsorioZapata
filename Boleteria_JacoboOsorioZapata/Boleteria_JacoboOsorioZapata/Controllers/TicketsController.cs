@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Boleteria_JacoboOsorioZapata.Controllers
 {
-    public class TicketsController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TicketsController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }
