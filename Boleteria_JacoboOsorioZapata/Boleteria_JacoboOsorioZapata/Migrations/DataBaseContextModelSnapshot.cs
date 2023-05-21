@@ -35,7 +35,7 @@ namespace Boleteria_JacoboOsorioZapata.Migrations
                     b.Property<bool>("IsUsed")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("UseDate")
+                    b.Property<DateTime?>("UseDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

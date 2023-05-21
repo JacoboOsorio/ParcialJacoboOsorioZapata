@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Boleteria_JacoboOsorioZapata.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20230521195612_ConcertDB_JacoboOsorioZapata")]
+    [Migration("20230521201513_ConcertDB_JacoboOsorioZapata")]
     partial class ConcertDB_JacoboOsorioZapata
     {
         /// <inheritdoc />
@@ -38,7 +38,7 @@ namespace Boleteria_JacoboOsorioZapata.Migrations
                     b.Property<bool>("IsUsed")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("UseDate")
+                    b.Property<DateTime?>("UseDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

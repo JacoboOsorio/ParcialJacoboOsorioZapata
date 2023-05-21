@@ -16,7 +16,7 @@ namespace Boleteria_JacoboOsorioZapata.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UseDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsUsed = table.Column<bool>(type: "bit", nullable: false),
                     EntranceGate = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },

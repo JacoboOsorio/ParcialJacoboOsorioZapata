@@ -10,7 +10,7 @@ namespace Boleteria_JacoboOsorioZapata.DAL.Entities
         public Guid Id { get; set; }
 
         [Display(Name = "Fecha de uso")]
-        public DateTime UseDate { get; set; }
+        public DateTime? UseDate { get; set; }
 
         [Display(Name = "¿Se usó?")]
         public bool IsUsed { get; set; }
