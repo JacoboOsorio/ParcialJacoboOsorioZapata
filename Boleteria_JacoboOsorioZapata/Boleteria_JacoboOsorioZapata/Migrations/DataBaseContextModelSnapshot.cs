@@ -29,7 +29,6 @@ namespace Boleteria_JacoboOsorioZapata.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("EntranceGate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsUsed")

@@ -18,7 +18,7 @@ namespace Boleteria_JacoboOsorioZapata.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UseDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsUsed = table.Column<bool>(type: "bit", nullable: false),
-                    EntranceGate = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    EntranceGate = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -16,6 +16,6 @@ namespace Boleteria_JacoboOsorioZapata.DAL.Entities
         public bool IsUsed { get; set; }
 
         [Display(Name = "Puerta de entrada")]
-        public string EntranceGate { get; set; }
+        public string? EntranceGate { get; set; }
     }
 }
