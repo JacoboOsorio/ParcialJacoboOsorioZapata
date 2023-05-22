@@ -27,8 +27,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/zapat/Desktop/Boleteria_Parcial_JacoboOsorioZapata/Boleteria_JacoboOsorioZapata/WebPage_Boleteria/Views/Shared/PartialViews/_TicketsCreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxWaWV3c1xfVGlja2V0c0NyZWF0ZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/zapat/Desktop/Boleteria_Parcial_JacoboOsorioZapata/Boleteria_JacoboOsorioZapata/WebPage_Boleteria/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zapat/Desktop/Boleteria_Parcial_JacoboOsorioZapata/Boleteria_JacoboOsorioZapata/WebPage_Boleteria/Views/Tickets/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/zapat/Desktop/Boleteria_Parcial_JacoboOsorioZapata/Boleteria_JacoboOsorioZapata/WebPage_Boleteria/Views/Tickets/Index.cshtml]

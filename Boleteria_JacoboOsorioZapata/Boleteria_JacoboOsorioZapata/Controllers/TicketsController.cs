@@ -41,24 +41,30 @@ namespace Boleteria_JacoboOsorioZapata.Controllers
 
         [HttpPut, ActionName("Edit")]
         [Route("Edit/{id}")]
-        public async Task<ActionResult> EditTicket(Guid? id, Tickets ticket)
+        public async Task<ActionResult> EditTicket(Guid? id, Tickets ticket, string gate)
         {
-            try
+            if (ticket.Id == id)
             {
-                if (id != ticket.Id) return NotFound("Boleta no valida");
-                if (ticket.IsUsed) return NotFound("Boleta ya usada");
+                if (ticket.IsUsed)
+                {
+                    try
+                    {
+                        ticket.UseDate = DateTime.Now;
+                        ticket.IsUsed = true;
+                        ticket.EntranceGate = gate;
 
-                ticket.UseDate = DateTime.Now;
-                ticket.IsUsed = true;
-
-                _context.Tickets.Update(ticket);
-                await _context.SaveChangesAsync();
+                        _context.Tickets.Update(ticket);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        return Conflict(ex.Message);
+                    }
+                    return Ok("Boleta valida, puede ingresar al concierto");
+                }
+                return NotFound("Boleta ya usada");
             }
-            catch (Exception ex)
-            {
-                return Conflict(ex.Message);
-            }
-            return Ok("Boleta valida, puede ingresar al concierto");
+            return NotFound("Boleta no valida");
         }
     }
 }
