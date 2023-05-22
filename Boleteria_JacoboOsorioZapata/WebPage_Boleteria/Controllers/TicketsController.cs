@@ -23,6 +23,12 @@ namespace WebPage_Boleteria.Controllers
         }
 
         [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Edit(Guid? id)
         {
             var url = String.Format("https://localhost:7088/api/Tickets/Get/{0}", id);
@@ -31,28 +37,25 @@ namespace WebPage_Boleteria.Controllers
             return View(ticket);
         }
 
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Tickets ticket)
-        {
-            var url = "https://localhost:7088/api/Tickets/Create";
-            await _httpClient.CreateClient().PostAsJsonAsync(url, ticket);
-            return RedirectToAction("Index");
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid? id, Tickets ticket)
         {
-            var url = String.Format("https://localhost:7088/api/Tickets/Edit/{0}", id);
-            await _httpClient.CreateClient().PutAsJsonAsync(url, ticket);
-            return RedirectToAction("Index");
+            if (ticket.Id == id)
+            {
+                if(ticket.IsUsed)
+                {
+                    var url = String.Format("https://localhost:7088/api/Tickets/Edit/{0}", id);
+
+                    ticket.UseDate = DateTime.Now;
+                    ticket.IsUsed = true;
+
+                    await _httpClient.CreateClient().PutAsJsonAsync(url, ticket);
+                    return RedirectToAction("Index");
+                }
+                return NotFound("Boleto ya usado");
+            }
+            return NotFound("Boleto no valido");
         }
     }
 }
