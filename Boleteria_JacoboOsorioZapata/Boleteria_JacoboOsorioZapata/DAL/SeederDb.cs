@@ -24,7 +24,7 @@ namespace Boleteria_JacoboOsorioZapata.DAL
 
             if (!_context.Tickets.Any())
             {
-                while (x != 25)
+                while (x != 50000)
                 {
                     _context.Tickets.Add(new Tickets { Id = Guid.NewGuid(), UseDate = null, IsUsed = false, EntranceGate = null });
                     x++;

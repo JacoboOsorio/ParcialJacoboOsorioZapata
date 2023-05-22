@@ -45,7 +45,7 @@ namespace Boleteria_JacoboOsorioZapata.Controllers
         {
             if (ticket.Id == id)
             {
-                if (ticket.IsUsed)
+                if (!ticket.IsUsed)
                 {
                     try
                     {
