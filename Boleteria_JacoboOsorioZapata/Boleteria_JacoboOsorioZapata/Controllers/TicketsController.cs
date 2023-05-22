@@ -45,8 +45,8 @@ namespace Boleteria_JacoboOsorioZapata.Controllers
         {
             try
             {
-                System.Console.WriteLine(ticket.Id);
                 if (id != ticket.Id) return NotFound("Boleta no valida");
+                if (ticket.IsUsed) return NotFound("Boleta ya usada");
 
                 ticket.UseDate = DateTime.Now;
                 ticket.IsUsed = true;
@@ -58,7 +58,7 @@ namespace Boleteria_JacoboOsorioZapata.Controllers
             {
                 return Conflict(ex.Message);
             }
-            return Ok(ticket);
+            return Ok("Boleta valida, puede ingresar al concierto");
         }
     }
 }
