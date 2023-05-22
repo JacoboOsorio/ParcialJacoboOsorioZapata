@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Boleteria_JacoboOsorioZapata.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20230521231757_ConcertDB_JacoboOsorioZapata")]
+    [Migration("20230522000247_ConcertDB_JacoboOsorioZapata")]
     partial class ConcertDB_JacoboOsorioZapata
     {
         /// <inheritdoc />
