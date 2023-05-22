@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "gCipaALM1Km9fF9MX3FYy81Pwiuw0X3NcjIuaUrP8lb6A9UdeKgvZ4GDHERKGjnZIf0g7tH19ThFpofDS1YAiQ==",
+  "dgSpecHash": "JXGRmGNNuLfCGuVawr01JPv1NE+PCca5fFBaJDWq/7WckRImyOHL2tLrwAbu7LmzN7f2w7KUsRPIY0HOa0pGHw==",
   "success": true,
   "projectFilePath": "C:\\Users\\zapat\\Desktop\\Boleteria_Parcial_JacoboOsorioZapata\\Boleteria_JacoboOsorioZapata\\WebPage_Boleteria\\WebPage_Boleteria.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\zapat\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
