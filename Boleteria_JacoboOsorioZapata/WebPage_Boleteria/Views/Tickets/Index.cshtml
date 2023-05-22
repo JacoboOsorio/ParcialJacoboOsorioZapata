@@ -1,25 +1,60 @@
-﻿@model Boleteria_JacoboOsorioZapata.DAL.Entities.Tickets
+﻿@model IEnumerable<Boleteria_JacoboOsorioZapata.DAL.Entities.Tickets>
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Index";
 }
 
-<h4>Tickets</h4>
-<hr />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
+
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <input type = "hidden" asp-for="Id" />
-            <input type="hidden" asp-for="EntranceGate" />
-
-            <partial name = "../Shared/PartialViews/_TicketsCreateEdit.cshtml" />
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-outline-primary" />
-                <a asp-action="Index" class="btn btn-outline-success">Regresar</a>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Tickets</h3>
             </div>
-        </form>
+            <div class="panel-body">
+                <table class="table table-hover table-responsive table-striped" id="TicketsTable">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UseDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IsUsed)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EntranceGate)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UseDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsUsed)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EntranceGate)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning">Editar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -27,4 +62,19 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script src="//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#TicketsTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                },
+                "aLengthMenu": [
+                    [5, 25, 50, 100, 200, -1],
+                    [5, 25, 50, 100, 200, "Todos"]
+                ]
+            });
+        });
+    </script>
 }
