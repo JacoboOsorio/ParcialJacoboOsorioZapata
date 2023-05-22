@@ -3,7 +3,6 @@ using Boleteria_JacoboOsorioZapata.DAL.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata.Ecma335;
 
 namespace Boleteria_JacoboOsorioZapata.Controllers
 {
@@ -37,6 +36,28 @@ namespace Boleteria_JacoboOsorioZapata.Controllers
 
             if (ticket == null) return NotFound();
 
+            return Ok(ticket);
+        }
+
+        [HttpPut, ActionName("Edit")]
+        [Route("Edit/{id}")]
+        public async Task<ActionResult> EditTicket(Guid? id, Tickets ticket)
+        {
+            try
+            {
+                System.Console.WriteLine(ticket.Id);
+                if (id != ticket.Id) return NotFound("Boleta no valida");
+
+                ticket.UseDate = DateTime.Now;
+                ticket.IsUsed = true;
+
+                _context.Tickets.Update(ticket);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return Conflict(ex.Message);
+            }
             return Ok(ticket);
         }
     }
